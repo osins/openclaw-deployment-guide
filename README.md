@@ -109,6 +109,34 @@
    tail -f /tmp/openclaw/openclaw-*.log
    ```
 
+### 使用 Doctor 工具进行自动诊断和修复
+
+OpenClaw 提供了一个强大的 `doctor` 工具来进行健康检查和快速修复：
+
+```bash
+# 查看 doctor 命令的帮助信息
+openclaw doctor --help
+
+# 运行健康检查
+openclaw doctor
+
+# 自动应用推荐的修复（谨慎使用）
+openclaw doctor --repair
+
+# 强制应用激进修复（覆盖自定义服务配置）
+openclaw doctor --force
+
+# 深度扫描系统服务以查找额外的 gateway 安装
+openclaw doctor --deep
+```
+
+Doctor 工具可以自动检测和修复多种问题，包括：
+- 网关服务配置问题
+- 通道连接问题
+- 系统服务冲突
+- 配置文件损坏
+- 其他常见运行时问题
+
 ## 贡献
 
 欢迎提交 Pull Request 来补充更多部署技巧和解决方案。
