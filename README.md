@@ -13,24 +13,23 @@
 ### Telegram 连接问题
 
 #### 问题描述
-在对接 Telegram 时，如果不设置代理，无法实现 Telegram 和 OpenClaw 的消息互通。
+在对接 Telegram 时，如果不设置代理或轮询模式，无法实现 Telegram 和 OpenClaw 的消息互通。
 
 #### 解决方案
-当遇到 Telegram 机器人无法与 OpenClaw 正常通信时，需要配置代理来解决网络连接问题。以下是几种可能的解决方案：
+当遇到 Telegram 机器人无法与 OpenClaw 正常通信时，需要配置代理或轮询模式来解决网络连接问题。以下是几种可能的解决方案：
 
 1. **使用代理服务器**
    在 OpenClaw 配置中添加代理设置，确保请求能够正确路由到 Telegram 服务器。
 
-2. **使用隧道工具**
-   如果服务器无法直接访问 Telegram API，可以使用隧道工具（如 ngrok）将本地端口暴露到公网。
+2. **使用轮询模式**
+   修改 OpenClaw 的 Telegram 通道配置，使用轮询模式而非默认的 Webhook 模式。
 
-3. **修改 Telegram 通道配置**
-   在某些情况下，可以尝试修改 OpenClaw 的 Telegram 通道配置，使用不同的连接模式。
+3. **使用隧道工具**
+   如果服务器无法直接访问 Telegram API，可以使用隧道工具（如 ngrok）将本地端口暴露到公网。
 
 #### 配置示例
 
-如果使用代理，可以在配置文件中添加类似以下的设置：
-
+**方法一：使用代理**
 ```json
 {
   "channels": {
@@ -40,16 +39,13 @@
       "botToken": "YOUR_BOT_TOKEN",
       "groupPolicy": "allowlist",
       "streamMode": "partial",
-      "proxy": {
-        "url": "http://your-proxy-url:port"
-      }
+      "proxy": "http://127.0.0.1:30808"
     }
   }
 }
 ```
 
-或者使用轮询模式：
-
+**方法二：使用轮询模式**
 ```json
 {
   "channels": {
