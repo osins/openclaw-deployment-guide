@@ -48,6 +48,23 @@
 }
 ```
 
+或者使用轮询模式：
+
+```json
+{
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "YOUR_BOT_TOKEN",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial",
+      "mode": "polling"
+    }
+  }
+}
+```
+
 ## 部署技巧
 
 ## 故障排除
