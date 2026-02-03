@@ -61,6 +61,33 @@
 }
 ```
 
+### Node.js 版本兼容性问题
+
+#### 问题描述
+如果 Node.js 版本不是 22，则 OpenClaw gateway 无法正常启动。
+
+#### 解决方案
+确保安装并使用 Node.js v22 或兼容的版本。可以使用 Node 版本管理器来切换版本。
+
+#### 检查和安装方法
+
+1. 检查当前 Node.js 版本：
+   ```bash
+   node --version
+   ```
+
+2. 推荐使用 nvm（Node Version Manager）来管理 Node.js 版本：
+   ```bash
+   # 安装 Node.js v22
+   nvm install 22
+   nvm use 22
+   ```
+
+3. 验证版本：
+   ```bash
+   node --version  # 应该显示 v22.x.x
+   ```
+
 ## 部署技巧
 
 ## 故障排除
